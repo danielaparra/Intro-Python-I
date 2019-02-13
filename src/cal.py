@@ -22,3 +22,19 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+if len(sys.argv) == 1:
+    month = datetime.now().month
+    year = datetime.now().year
+elif len(sys.argv) == 2:
+    month = int(sys.argv[1])
+    year = datetime.now().year
+elif len(sys.argv) == 3:
+    month = int(sys.argv[1])
+    year = int(sys.argv[2])
+else:
+    print("Example of input expected: cal.py 2 2019")
+    exit()
+
+cal = calendar.TextCalendar().formatmonth(year, month)
+print(cal)
